@@ -85,7 +85,8 @@ func (t *Tunnel) transport(conn net.Conn) {
 
 // Start 接收连接
 func (t *Tunnel) Start() {
-	ln, err := net.ListenTCP("tcp", t.faddr)
+	log.Println("listen: ", t.faddr)
+	ln, err := net.ListenTCP("tcp4", t.faddr)
 	if err != nil {
 		log.Fatal(err)
 	}
